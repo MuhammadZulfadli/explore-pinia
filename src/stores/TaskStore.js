@@ -18,6 +18,5 @@ export const useTaskStore = defineStore("taskStore", {
         isFav: true,
       },
     ],
-    name: "Ipay",
   }),
 });
