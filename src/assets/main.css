@@ -106,3 +106,28 @@ form input {
   color: #555;
   font-size: 1em;
 }
+.loading {
+  max-width: 640px;
+  border: 1px solid #ffd859;
+  background: #ffe9a0;
+  color: #3a3a3a;
+  padding: 5px 0;
+  text-align: center;
+  margin: 30px auto;
+}
+/* Reset */
+.reset {
+  width: 640px;
+  margin: 10px auto;
+  text-align: right;
+}
+.reset button {
+  display: inline-block;
+  margin-left: 10px;
+  background: #ffd859;
+  border: 2px solid #ffe9a0;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 1em;
+}
