@@ -1,0 +1,20 @@
+{
+  "tasks": [
+    {
+      "title": "Buy some Egg",
+      "isFav": true,
+      "id": 9541
+    },
+    {
+      "title": "Buy some Keyboard",
+      "isFav": false,
+      "id": 1428,
+      "isfav": true
+    },
+    {
+      "title": "Become a pro",
+      "isFav": true,
+      "id": 652
+    }
+  ]
+}
