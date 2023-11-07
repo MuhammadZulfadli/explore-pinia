@@ -3,7 +3,7 @@
     <!-- Heading -->
     <header>
       <img src="./assets/pinia-logo.svg" alt="pinia logo" />
-      <h1>Pinia Tasks</h1>
+      <h1>Todo Tasks</h1>
     </header>
 
     <!-- New Task Form -->
@@ -17,6 +17,7 @@
     <nav class="filter">
       <button @click="filter = 'all'">All Taks</button>
       <button @click="filter = 'favs'">Fav Tasks</button>
+      <button @click="filter = 'finished'">Finished Tasks</button>
     </nav>
 
     <!-- Task Lists -->
@@ -29,6 +30,12 @@
     <div class="task-list" v-if="filter === 'favs'">
       <p>You have {{ favCount }} fav left to do</p>
       <div v-for="task in favs" :key="task">
+        <TaskDetails :task="task" />
+      </div>
+    </div>
+    <div class="task-list" v-if="filter === 'finished'">
+      <p>You have {{ finishedCount }} task finished</p>
+      <div v-for="task in finished" :key="task">
         <TaskDetails :task="task" />
       </div>
     </div>
@@ -56,15 +63,32 @@ export default {
     const taskStore = useTaskStore();
     const filter = ref("all");
 
-    const { tasks, loading, favs, totalCount, favCount } =
-      storeToRefs(taskStore);
+    const {
+      tasks,
+      loading,
+      favs,
+      finished,
+      totalCount,
+      favCount,
+      finishedCount,
+    } = storeToRefs(taskStore);
 
     /**
      * Fetch
      */
     taskStore.getTasks();
 
-    return { taskStore, filter, tasks, loading, favs, totalCount, favCount };
+    return {
+      taskStore,
+      filter,
+      tasks,
+      loading,
+      favs,
+      finished,
+      totalCount,
+      favCount,
+      finishedCount,
+    };
   },
 };
 </script>

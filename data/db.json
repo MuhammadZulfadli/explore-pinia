@@ -1,20 +1,22 @@
 {
   "tasks": [
     {
-      "title": "Buy some Egg",
-      "isFav": true,
-      "id": 9541
-    },
-    {
-      "title": "Buy some Keyboard",
+      "title": "Buy some coffe",
       "isFav": false,
-      "id": 1428,
-      "isfav": true
+      "isFinished": true,
+      "id": 9973
     },
     {
-      "title": "Become a pro",
-      "isFav": true,
-      "id": 652
+      "title": "Buy some glasses",
+      "isFav": false,
+      "isFinished": true,
+      "id": 8633
+    },
+    {
+      "title": "Ngedate",
+      "isFav": false,
+      "isFinished": false,
+      "id": 4521
     }
   ]
 }

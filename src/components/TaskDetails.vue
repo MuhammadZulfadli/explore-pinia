@@ -1,6 +1,8 @@
 <template>
   <div class="task">
-    <h3>{{ task.title }}</h3>
+    <h3 :class="{ finished: task.isFinished }">
+      {{ task.title }}
+    </h3>
     <div class="icons">
       <i class="material-icons" @click="taskStore.deleteTask(task.id)"
         >delete</i
@@ -11,20 +13,18 @@
         @click="taskStore.toggleFav(task.id)"
         >favorite</i
       >
+      <i
+        class="material-icons"
+        :class="{ active: task.isFinished }"
+        @click="taskStore.toggleFinished(task.id)"
+        >task_alt</i
+      >
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
 import { useTaskStore } from "../stores/TaskStore";
-export default {
-  props: ["task"],
-  setup() {
-    const taskStore = useTaskStore();
-
-    return {
-      taskStore,
-    };
-  },
-};
+const props = defineProps(["task"]);
+const taskStore = useTaskStore();
 </script>

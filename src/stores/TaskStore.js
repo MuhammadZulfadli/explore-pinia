@@ -22,12 +22,29 @@ export const useTaskStore = defineStore("taskStore", {
     },
 
     /**
+     * @returns Get data when key isFinished is true
+     */
+    finished() {
+      return this.tasks.filter((a) => a.isFinished);
+    },
+
+    /**
      *
      * @returns count data when tasks isFav is true
      */
     favCount() {
       return this.tasks.reduce((p, c) => {
         return c.isFav ? p + 1 : p;
+      }, 0);
+    },
+
+    /**
+     *
+     * @returns count data when tasks isFinished is true
+     */
+    finishedCount() {
+      return this.tasks.reduce((a, b) => {
+        return b.isFinished ? a + 1 : a;
       }, 0);
     },
 
@@ -85,6 +102,18 @@ export const useTaskStore = defineStore("taskStore", {
       const response = await fetch("http://localhost:3000/tasks/" + id, {
         method: "PATCH",
         body: JSON.stringify({ isFav: task.isFav }),
+        headers: { "Content-Type": "application/json" },
+      });
+      if (response.error) {
+        console.log(response.error);
+      }
+    },
+    async toggleFinished(id) {
+      const task = this.tasks.find((a) => a.id == id);
+      task.isFinished = !task.isFinished;
+      const response = await fetch("http://localhost:3000/tasks/" + id, {
+        method: "PATCH",
+        body: JSON.stringify({ isFinished: task.isFinished }),
         headers: { "Content-Type": "application/json" },
       });
       if (response.error) {

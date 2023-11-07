@@ -1,8 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
+:root {
+  --primary-background-color: #fff;
+  --body-background-color: #f2ffe9;
+  --header-background-color: #e7e7e7;
+  --color-primary: #a6cf98;
+  --color-secondary: #557c55;
+  --text-primary-color: #444;
+}
+
 body {
-  background: #f2f2f2;
-  color: #444;
+  background: var(--body-background-color);
+  color: var(--text-primary-color);
   margin: 0;
 }
 body * {
@@ -12,8 +21,8 @@ body * {
 /* Header */
 header {
   text-align: center;
-  background: #e7e7e7;
-  padding-top: 20px;
+  background: var(--header-background-color);
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,6 +59,10 @@ header h1 {
 .task .icons {
   display: inline-block;
 }
+.task h3.finished {
+  text-decoration: line-through;
+  color: var(--color-secondary);
+}
 .task .icons {
   text-align: right;
 }
@@ -80,7 +93,7 @@ header h1 {
 
 /* New Task Form */
 .new-task-form {
-  background: #e7e7e7;
+  /* background: #e7e7e7; */
   padding: 20px 0;
 }
 form {
@@ -91,7 +104,7 @@ form {
   gap: 10px;
 }
 form button {
-  background: #ffd859;
+  background: var(--color-primary);
   border: 0;
   padding: 10px;
   font-family: "Poppins";
@@ -108,8 +121,8 @@ form input {
 }
 .loading {
   max-width: 640px;
-  border: 1px solid #ffd859;
-  background: #ffe9a0;
+  border: 1px solid var(--color-secondary);
+  background: var(--color-primary);
   color: #3a3a3a;
   padding: 5px 0;
   text-align: center;
@@ -124,8 +137,8 @@ form input {
 .reset button {
   display: inline-block;
   margin-left: 10px;
-  background: #ffd859;
-  border: 2px solid #ffe9a0;
+  background: var(--color-primary);
+  border: 2px solid var(--color-secondary);
   border-radius: 4px;
   padding: 4px 8px;
   cursor: pointer;
